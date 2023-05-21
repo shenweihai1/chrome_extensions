@@ -3,8 +3,12 @@
   "name": "Google Scholar Filter",
   "version": "1.0",
   "description": "Filter articles by top system conferences",
-   "permissions": [
-    "cookies"
+  "permissions": [
+    "cookies",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://scholar.google.com/scholar*"
   ],
   "icons": {
     "16": "images/icon-16.png",
@@ -17,7 +21,7 @@
       "run_at": "document_end",
       "js": ["scripts/content.js"],
       "matches": [
-        "https://scholar.google.com/*"
+        "https://scholar.google.com/scholar*"
       ]
     }
   ]
