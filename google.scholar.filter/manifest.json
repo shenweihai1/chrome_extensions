@@ -8,7 +8,7 @@
     "activeTab"
   ],
   "host_permissions": [
-    "https://scholar.google.com/scholar*"
+    "https://scholar.google.com/*"
   ],
   "icons": {
     "16": "images/icon-16.png",
@@ -21,7 +21,7 @@
       "run_at": "document_end",
       "js": ["scripts/content.js"],
       "matches": [
-        "https://scholar.google.com/scholar*"
+        "https://scholar.google.com/*"
       ]
     }
   ]
