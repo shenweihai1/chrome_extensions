@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Google Scholar Filter",
+  "version": "1.0",
+  "description": "Filter articles by top system conferences",
+   "permissions": [
+    "cookies"
+  ],
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://scholar.google.com/*"
+      ]
+    }
+  ]
+}
