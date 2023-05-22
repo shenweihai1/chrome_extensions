@@ -3,10 +3,7 @@
   "name": "Google Scholar Filter",
   "version": "1.0",
   "description": "Filter articles by top system conferences",
-  "permissions": [
-    "cookies",
-    "activeTab"
-  ],
+  "permissions": [  ],
   "host_permissions": [
     "https://scholar.google.com/*"
   ],
