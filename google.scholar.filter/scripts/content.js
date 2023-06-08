@@ -10,7 +10,7 @@ if (document.readyState !== 'complete') {
 data = [
   {
     "id": "0",
-    "name": "(Not stricted)",
+    "name": "(Not restricted)",
     "source": '',
   },
 
