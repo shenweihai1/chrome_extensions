@@ -9,39 +9,46 @@ if (document.readyState !== 'complete') {
 // config information
 data = [
   {
-    "id": "1",
+    "id": "0",
+    "name": "(Not stricted)",
+    "source": '',
+  },
+
+  // starting from here;
+  {
+    "id": "10",
     "name": "Eurosys",
-    "source": 'source:"Conference on Computer Systems"'
+    "source": 'source:"Conference on Computer Systems"',
   }, // can't include "European"
   {
-    "id": "2",
+    "id": "20",
     "name": "NSDI",
-    "source": "source:NSDI"
+    "source": "source:NSDI",
   },
   {
-    "id": "3",
+    "id": "30",
     "name": "OSDI",
-    "source": "source:OSDI"
+    "source": "source:OSDI",
   },
   {
-    "id": "4",
+    "id": "40",
     "name": "ATC",
-    "source": 'source:"USENIX annual technical conference"'
+    "source": 'source:"USENIX annual technical conference"',
   },
   {
-    "id": "5",
+    "id": "50",
     "name": "VLDB",
-    "source": "source:VLDB"
+    "source": "source:VLDB",
   },
   {
-    "id": "6",
+    "id": "60",
     "name": "SOSP",
-    "source": 'source:"Symposium on Operating Systems Principles"'
+    "source": 'source:"Symposium on Operating Systems Principles"',
   },
   {
-    "id": "7",
+    "id": "70",
     "name": "SIGMOD",
-    "source": 'source:"International Conference on Management of Data"'
+    "source": 'source:"International Conference on Management of Data"',
   },
 ]
 
@@ -101,6 +108,11 @@ function getFilterStringFromCookies() {
   }
   return ret;
 }
+
+function checked_special(id) { 
+  var checkbox = document.getElementById('custom-extension-checkbox-' + id);
+  return checkbox.checked;
+} 
 
 
 // output: "1,2,3"
@@ -201,7 +213,12 @@ function afterWindowLoaded() {
   // wrapper of the search button!
   button.addEventListener("click", function() {
     if (!is_home()) setCookie("_selected_conf", getSelectedIds(), 100)
-    lastInputElement.value = removeSuffix(lastInputElement.value) + " " + getFilterStringFromCookies();
+    lastInputElement.value = 
+      removeSuffix(lastInputElement.value) + " " + getFilterStringFromCookies();
+    if (checked_special("0")){
+      lastInputElement.value = 
+        removeSuffix(lastInputElement.value);
+    }
   });
 
   if (lastUlElement) {
@@ -248,9 +265,11 @@ function afterWindowLoaded() {
   if (is_home()) { // show the selected systems
     var gs_hp_sdt = document.getElementById("gs_hp_sdt");
     var lineBreak = document.createElement("br");
-    var textNode = document.createTextNode("Filter: [" + getSelectedFromCookies("name")+"]");
-    gs_hp_sdt.appendChild(lineBreak);
-    gs_hp_sdt.appendChild(textNode);
+    var textNode = document.createTextNode("Source: [" + getSelectedFromCookies("name")+"]");
+    if (gs_hp_sdt){
+      gs_hp_sdt.appendChild(lineBreak);
+      gs_hp_sdt.appendChild(textNode);
+    }
   }
 
   sleep(10).then(() => {
