@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "feishu",
+  "description": "Access feishu in Chrome side panel",
+  "version": "1.0.0",
+  "icons": {
+    "16": "src/assets/icon.png",
+    "32": "src/assets/icon.png",
+    "48": "src/assets/icon.png",
+    "128": "src/assets/icon.png"
+  },
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "host_permissions": [
+    "https://*.feishu.cn/"
+  ],
+  "permissions": [
+    "sidePanel",
+    "declarativeNetRequest",
+    "notifications"
+  ]
+}

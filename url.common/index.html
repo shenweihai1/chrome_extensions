@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+    <input type="text" id="url" name="url" value=""> <input type="button" onClick="formSubmit()" value="Search" /> <br/>
+    <script>
+        function formSubmit() {
+        var urle = document.getElementById("url").value;
+       document.getElementById("iframe1").src =
+                  urle;  
+    }
+      </script>
+      
+    <iframe  id="iframe1" height="1000" width="100%" src=""></iframe>
+</body>
+</html>
